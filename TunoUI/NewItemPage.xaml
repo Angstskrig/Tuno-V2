@@ -1,0 +1,65 @@
+﻿<Page x:Class="TunoUI.NewItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TunoUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="980" d:DesignWidth="1720"
+      Title="Tunø Depot - Ny Vare">
+
+    <Grid>
+        <Grid>
+            <!-- Set rows and columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource sectionLabelStyle}">Ny vare</Label>
+
+            <!-- Labels for the info needed -->
+            <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">Varenavn:</Label>
+            <Label Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource labelStyle}">(f.eks.: "Tuborg 33 cl flaske")</Label>
+            <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}">Varetype:</Label>
+            <Label Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource labelStyle}">(Vælg den korrekte kategori)</Label>
+            <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}">Antal:</Label>
+            <Label Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource labelStyle}">(Skriv det antal NYE varer du opretter)</Label>
+
+            <TextBox x:Name="textBoxVareNavn" Grid.Column="1" Grid.Row="1" Style="{StaticResource textBoxStyle}" />
+            <ComboBox x:Name="comboBoxVareType" Grid.Column="1" Grid.Row="2" Style="{StaticResource comboBoxStyle}" ItemsSource="{Binding type}" DisplayMemberPath="type" SelectedValuePath="type" SelectedValue="{Binding type}" />
+            <TextBox x:Name="textBoxAntal" Grid.Column="1" Grid.Row="3" Style="{StaticResource textBoxStyle}" />
+            
+            <!-- Needs to make some sort of permissions for my items - like where can they be sold?? -->
+            <StackPanel Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2">
+                <Label Style="{StaticResource labelStyle}">Tilladelser for vare (Hvem må få den udleveret?)</Label>
+                <CheckBox Content="Bar 1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="Bar 2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="Bodega" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="Juicebar" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="Kavalerbar" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox Content="P-Bar" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            </StackPanel>
+            <!-- Buttons to save or cancel -->
+            <Button x:Name="BtnSaveItem" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Style="{StaticResource buttonStyle}" Click="BtnSaveItem_Click">Gem Ny Vare</Button>
+            
+        </Grid>
+
+
+    </Grid>
+</Page>

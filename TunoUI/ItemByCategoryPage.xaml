@@ -1,0 +1,73 @@
+﻿<Page x:Class="TunoUI.ItemByCategoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TunoUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="980" d:DesignWidth="1720"
+      Title="ItemByCategoryPage">
+
+    <Grid>
+        <!-- A picture for the lulz -->
+        <Grid.Background>
+            <ImageBrush Stretch="None" AlignmentX="Left" AlignmentY="Bottom" ImageSource="watermark3.png"/>
+        </Grid.Background>
+
+        <Grid Margin="10,10,10,10">
+            <!-- Set rows and columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource titleStyle}">Lagerbeholdning</Label>
+            
+            <!-- Text for the selection box -->
+            <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource labelStyle}" Content="Vælg kategori:"/>
+
+            <!-- Select your Category here -->
+            <ComboBox Name="comboBoxSelectCategory" Grid.Column="2" Grid.Row="1" Style="{StaticResource comboBoxStyle}" ItemsSource="{Binding type}" DisplayMemberPath="type" SelectedValuePath="type" SelectedValue="{Binding type}"/>
+
+            <!-- Button to populate listview -->
+            <Button Name="BtnViewSelectedItems" Content="Vis Valgt Varetype" Grid.Column="3" Grid.Row="1" Style="{StaticResource buttonStyle}" Click="BtnViewSelectedItems_Click" />
+
+            <!-- Button for all Items -->
+            <Button Name="BtnAllItems" Grid.Column="4" Grid.Row="1" Style="{StaticResource buttonStyle}" Content="Vis Alle Varer" Click="BtnAllItems_Click" />
+
+            <!-- ListView for the selected Category -->
+            <ListView Name="listViewItemsByCategory" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="2" Width="auto" Height="auto" MaxHeight="300" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource gridViewColumnHeaderStyle}" >
+                        <GridViewColumn Header="Varenavn" Width="200" DisplayMemberBinding="{Binding navn}" />
+                        <GridViewColumn Header="Kategori" Width="100" DisplayMemberBinding="{Binding type}" />
+                        <GridViewColumn Header="Antal" Width="50" DisplayMemberBinding="{Binding antal}"/>
+                        <GridViewColumn Header="Lagerstatus">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ProgressBar Maximum="100" Value="{Binding Lagerstatus}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!-- Buttons to save or cancel -->
+            <Button x:Name="BtnHovedmenu" Grid.Column="5" Grid.Row="3" Margin="0,10,0,0" Style="{StaticResource buttonStyle}" Click="BtnCancel_Click">Hovedmenu</Button>
+
+        </Grid>
+    </Grid>
+</Page>

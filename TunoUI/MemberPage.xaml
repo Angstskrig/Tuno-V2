@@ -1,0 +1,41 @@
+﻿<Page x:Class="TunoUI.MemberPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TunoUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="980" d:DesignWidth="1720"
+      Title="MemberPage">
+
+    <Grid>
+       <Grid>
+            <!-- Set rows and columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Column="0" Grid.ColumnSpan="5" Style="{StaticResource sectionLabelStyle}">Medlemmer af Tunø Depot</Label>
+            
+            <!-- Show members of the Depot -->
+            <ListView Name="listViewMembers" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource gridViewColumnHeaderStyle}">
+                        <GridViewColumn Header="Fornavn" DisplayMemberBinding="{Binding forNavn}"/>
+                        <GridViewColumn Header="Efternavn" DisplayMemberBinding="{Binding efterNavn}"/>
+                        <GridViewColumn Header="Alias" DisplayMemberBinding="{Binding alias}"/>
+                        <GridViewColumn Header="Mobil" DisplayMemberBinding="{Binding mobil}"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding email}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

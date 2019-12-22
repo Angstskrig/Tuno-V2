@@ -1,0 +1,52 @@
+﻿<Page x:Class="TunoUI.NewMemberPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TunoUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="980" d:DesignWidth="1720"
+      Title="Opret Nyt Depot Medlem">
+
+    <Grid>
+        <Grid>
+            <!-- Set rows and columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource sectionLabelStyle}">Opret Nyt Depot Medlem</Label>
+
+            <!-- Fields for the info of the new member -->
+            <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">Fornavn:</Label>
+            <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}">Efternavn:</Label>
+            <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource labelStyle}">Alias:</Label>
+            <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource labelStyle}">Mobil:</Label>
+            <Label Grid.Column="0" Grid.Row="5" Style="{StaticResource labelStyle}">Email:</Label>
+
+            <TextBox x:Name="forNavnTekst" Grid.Column="1" Grid.Row="1" Style="{StaticResource textBoxStyle}"/>
+            <TextBox x:Name="efterNavnTekst" Grid.Column="1" Grid.Row="2" Style="{StaticResource textBoxStyle}"/>
+            <TextBox x:Name="aliasTekst" Grid.Column="1" Grid.Row="3" Style="{StaticResource textBoxStyle}"/>
+            <TextBox x:Name="mobilTekst" Grid.Column="1" Grid.Row="4" Style="{StaticResource textBoxStyle}"/>
+            <TextBox x:Name="emailTekst" Grid.Column="1" Grid.Row="5" Style="{StaticResource textBoxStyle}"/>
+
+            <!-- Buttons to save or cancel -->
+            <Button x:Name="BtnGemNytMedlem" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" Style="{StaticResource buttonStyle}" Click="BtnGemNytMedlem_Click">Opret Nyt Medlem</Button>
+        </Grid>
+    </Grid>
+</Page>
